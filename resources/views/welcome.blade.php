@@ -78,6 +78,27 @@
       </div>
     </div>
 
+    <!-- Sponsored content -->
+      <div id="features-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="12u 12u(medium)">
+
+              <!-- Box -->
+                <section class="box feature">
+                  <a href="#" class="image featured"><img style="border-radius: 25px; width: auto; height: 250px;" src="http://3.bp.blogspot.com/-1hhtUWZzEnA/UTEVxVfRqkI/AAAAAAAAANU/yOGESbaOdpM/s1600/Spring-Cleaning-SALE---March-2013---Facebook2.png" alt="" /></a>
+                  <div class="inner">
+                    <header>
+                      <h2>Sponsored Content</h2>
+                    </header>
+                  </div>
+                </section>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
   <!-- Main -->
     <div id="main-wrapper">
       <div class="container">
