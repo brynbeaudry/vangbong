@@ -45,8 +45,16 @@
 
             <!-- Nav -->
               <nav id="nav" class="navbar-nav">
-                <ul>
-                  <li><a href="#left-sidebar" data-toggle="collapse">Left Sidebar</a></li>
+
+                    <!-- Collapsed Hamburger -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                  <ul class="nav navbar-nav navbar-right">
                       <!-- Authentication Links -->
                       @if (Auth::guest())
                           <li><a href="{{ route('login') }}">Login</a></li>
@@ -74,6 +82,7 @@
                           </li>
                       @endif
                 </ul>
+              </div>
               </nav>
 
           </header>
