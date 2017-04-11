@@ -48,13 +48,14 @@
 
             <!-- Box -->
               <section class="box feature">
-                <a href="#" class="image featured"><img src="css/images/pic02.jpg" alt="" /></a>
+                <a href="/uservesselpostings" class="image featured"><img src="css/images/pic02.jpg" alt="" /></a>
                 <div class="inner">
                   <header>
-                    <h2>An interesting title</h2>
-                    <p>This is also an interesting subtitle</p>
+                    <h2>Bong Trader</h2>
+                    <p>Trade your pieces!</p>
                   </header>
-                  <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+                  <p>Do you have extra bongs? Why not trade in that old piece that you no longer use? After a while, we
+                      all end up with extras lying around... Let somebody else give it the love it really deserves!</p>
                 </div>
               </section>
 
