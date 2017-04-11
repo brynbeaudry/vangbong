@@ -20,6 +20,3 @@ Route::resource('vessels', "UserVesselController");
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-
-Route::get('uservesselpostings', 'UserVesselController@index');
-Route::get('uservesselpostings/{id}', 'UserVesselController@show');

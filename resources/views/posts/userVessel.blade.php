@@ -12,6 +12,12 @@
                 <div class="row">
                     <div>
                         <h2>Van Bong Trader</h2>
+                        @if(isset($index))
+                        <h3>{{$index}}</h3>
+                        @endif
+                        @if(isset($showOne))
+                        <h3>{{$showOne}}</h3>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -22,7 +28,7 @@
 
 
 
-        
+
     {{--@if(count($postings) > 0 )--}}
             {{--foreach($posting in postings--}}
         <!-- Features -->
