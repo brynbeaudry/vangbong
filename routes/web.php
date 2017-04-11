@@ -15,8 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('dispensaries', "DispensaryController");
-Route::resource('vessels', "VesselController");
+Route::resource('vessels', "UserVesselController");
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('uservesselpostings', 'UserVesselController@index');
+Route::get('uservesselpostings/{id}', 'UserVesselController@show');
