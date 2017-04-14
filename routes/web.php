@@ -1,5 +1,5 @@
 <?php
-
+use Intervention\Image\Image;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +20,8 @@ Route::resource('vessels', "UserVesselController");
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/', 'WelcomeController@index');
+Route::get('imgstore/{filename}', function ($filename)
+{
+    return Image::make(storage_path() . "/" . $filename)->response();
+});

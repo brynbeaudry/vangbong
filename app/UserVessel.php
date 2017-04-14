@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserVessel extends Model
 {
     protected $fillable = [
-        'id','title','description','imagePath', 'ownerId',
+        'title','description','img', 'ownerId',
     ];
 
     /**

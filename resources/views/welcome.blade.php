@@ -17,74 +17,43 @@
           </div>
           <div class="5u 12u(medium)">
             <ul>
-              <li><a href="#" class="button big icon fa-arrow-circle-right">Ok let's go</a></li>
-              <li><a href="#" class="button alt big icon fa-question-circle">More info</a></li>
+              <li><a onclick='$("#banner").hide()' class="button big icon fa-arrow-circle-right">Ok let's go</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-  <!-- Features -->
-    <div id="features-wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="4u 12u(medium)">
+    <!-- Aeticle 1 -->
+      <div id="features-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="12u 12u(medium)">
+              <!-- Box -->
+                <section class="box feature">
+                  <a href="#" class="image featured"><img style="border-radius: 25px; width: auto; height: 250px;" src="http://www.cannabisculture.com/files/images/gmm_0.jpg" alt="" /></a>
+                  <div class="inner">
+                    <header>
+                      <h2>Weed Tourist Guide</h2>
+                    </header>
+                    <p>*Before you decide to come to Vancouver, be sure to inform yourself about the current marijuana laws. See our Vancouver Marijuana Laws for more information.  We do not advocate for breaking the law. *</p>
+                    <p>So you’ve decided to come to ‘Vansterdam’ , but you don’t know where t go. Here are some of the best places to go to experience the famous BC Bud! </p>
+                    <p>Your best bet would be to head go downtown to “The New Amsterdam Café,” located at 301 Hastings Street W. This is the most popular place to smoke up in Vancouver. Also, next door is “Marc Emery’s Cannabis Culture” vapor lounge. For a small fee, you are able to vape or smoke to your heart’s content. There is only one issue… Weed is technically still illegal here, so you will not be able to purchase it at these types of businesses. You will see signs on all the walls saying “You cannot buy cannabis here. Do not ask.” The staff will not tell you anything about how to get green, so listen to the signs and do not try to ask them. </p>
+                    <p>Your best bet would be to head go downtown to “The New Amsterdam Café,” located at 301 Hastings Street W. This is the most popular place to smoke up in Vancouver. Also, next door is “Marc Emery’s Cannabis Culture” vapor lounge. For a small fee, you are able to vape or smoke to your heart’s content. There is only one issue… Weed is technically still illegal here, so you will not be able to purchase it at these types of businesses. You will see signs on all the walls saying “You cannot buy cannabis here. Do not ask.” The staff will not tell you anything about how to get green, so listen to the signs and do not try to ask them. </p>
+                    <p>There are plenty of simple ways to get what you want. It is extremely easy to get in the area of the café. The quickest and easiest way to get it would be to ask people in the immediate area around the café. Do not try to buy off people inside the café, as that is not allowed. If you ask around, you will be able to find somebody to buy from within minutes. That area is a hotspot, so there is no shortage of sellers. However, if you prefer not to do this, as it may seem sketchy, than there are other ways to get what you want. Many of the dispensaries in Vancouver have already dropped their requirement for a medicinal card, and are openly selling to recreational users above the age of 19. For example, you can go to “The Medicinal Cannabis Dispensary,” at either one of their locations (880 East Hastings St or 1182 Thurlow Street). As of last year, they publicly dropped their requirement for a medicinal card, even though it is technically illegal. Going to one of those places would probably be the best experience, as you can have a wide selection of strains, and you will not have to worry whether or not the product is laced. </p>
+                  </div>
+                </section>
 
-            <!-- Box -->
-              <section class="box feature">
-                <a href="#" class="image featured"><img src="css/images/pic01.jpg" alt="" /></a>
-                <div class="inner">
-                  <header>
-                    <h2>Put something here</h2>
-                    <p>Maybe here as well I think</p>
-                  </header>
-                  <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
-                </div>
-              </section>
-
-          </div>
-          <div class="4u 12u(medium)">
-
-            <!-- Box -->
-              <section class="box feature">
-                <a href="/uservesselpostings" class="image featured"><img src="css/images/pic02.jpg" alt="" /></a>
-                <div class="inner">
-                  <header>
-                    <h2>Bong Trader</h2>
-                    <p>Trade your pieces!</p>
-                  </header>
-                  <p>Do you have extra bongs? Why not trade in that old piece that you no longer use? After a while, we
-                      all end up with extras lying around... Let somebody else give it the love it really deserves!</p>
-                </div>
-              </section>
-
-          </div>
-          <div class="4u 12u(medium)">
-
-            <!-- Box -->
-              <section class="box feature">
-                <a href="#" class="image featured"><img src="css/images/pic03.jpg" alt="" /></a>
-                <div class="inner">
-                  <header>
-                    <h2>Oh, and finally ...</h2>
-                    <p>Here's another intriguing subtitle</p>
-                  </header>
-                  <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
-                </div>
-              </section>
-
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
     <!-- Sponsored content -->
       <div id="features-wrapper">
         <div class="container">
           <div class="row">
             <div class="12u 12u(medium)">
-
               <!-- Box -->
                 <section class="box feature">
                   <a href="#" class="image featured"><img style="border-radius: 25px; width: auto; height: 250px;" src="http://3.bp.blogspot.com/-1hhtUWZzEnA/UTEVxVfRqkI/AAAAAAAAANU/yOGESbaOdpM/s1600/Spring-Cleaning-SALE---March-2013---Facebook2.png" alt="" /></a>
@@ -99,6 +68,33 @@
           </div>
         </div>
       </div>
+      <!-- Sponsor Vessels  -->
+
+
+        <div id="features-wrapper">
+          <div class="container">
+            <div class="row">
+              @if(count($sponsorVessels) > 0)
+              @foreach($sponsorVessels as $sponsorVessel)
+              <div class="4u 12u(medium)">
+                <!-- Box -->
+                  <section class="box feature">
+                    <a href="{{$sponsorVessel->purchaselink}}" class="image featured"><img src="{{$sponsorVessel->img}}" alt="" /></a>
+                    <div class="inner">
+                      <header>
+                        <h3>New at Ignite Smoke Shop!</h3>
+                        <h2>{{$sponsorVessel['name']}}</h2>
+                        <p>{{$sponsorVessel['brand']}}</p>
+                      </header>
+                      <p>{{$sponsorVessel['price']}}</p>
+                    </div>
+                  </section>
+                </div>
+                @endforeach
+                @endif
+              </div>
+            </div>
+          </div>
 
   <!-- Main -->
     <div id="main-wrapper">

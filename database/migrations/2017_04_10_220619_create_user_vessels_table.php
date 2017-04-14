@@ -17,9 +17,8 @@ class CreateUserVesselsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('desription')->unique();
-            $table->string('imagePath');
+            $table->binary('img');
             $table->string('ownerId');
-            $table->rememberToken();
             $table->timestamps();
         });
     }
