@@ -12,21 +12,21 @@
       <div class="container">
         <div class="row">
           @if(isset($userVessels) && count($userVessels) > 0)
-          @foreach($userVessel in $userVessels)
-          <div class="4u 12u(medium)">
-            <!-- Box -->
-              <section class="box feature">
-                <a href="#" class="image featured"><img src="{{$userVessel->img}}" alt="" /></a>
-                <div class="inner">
-                  <header>
-                    <h2>{{$userVessel->title}}</h2>
-                    <p>{{$userVessel->description}}</p>
-                  </header>
-                  <p>{{User::find($userVessel->ownerId)->get()-first()}}</p>
-                </div>
-              </section>
-            </div>
-            @endforeach
+            @foreach($userVessels as $userVessel)
+            <div class="4u 12u(medium)">
+              <!-- Box -->
+                <section class="box feature">
+                  <a href="#" class="image featured"><img src="{{$userVessel->img}}" alt="" /></a>
+                  <div class="inner">
+                    <header>
+                      <h2>{{$userVessel->title}}</h2>
+                      <p>{{$userVessel->description}}</p>
+                    </header>
+                    <p>{{User::find($userVessel->ownerId)->get()-first()}}</p>
+                  </div>
+                </section>
+              </div>
+              @endforeach
             @endif
           </div>
         </div>
@@ -58,23 +58,23 @@
       <div id="features-wrapper">
         <div class="container">
           <div class="row">
-            @if(count($sponsorVessels) > 0)
-            @foreach($sponsorVessels as $sponsorVessel)
-            <div class="4u 12u(medium)">
-              <!-- Box -->
-                <section class="box feature">
-                  <a href="{{$sponsorVessel->purchaselink}}" class="image featured"><img src="{{$sponsorVessel->img}}" alt="" /></a>
-                  <div class="inner">
-                    <header>
-                      <h3>New at Ignite Smoke Shop!</h3>
-                      <h2>{{$sponsorVessel['name']}}</h2>
-                      <p>{{$sponsorVessel['brand']}}</p>
-                    </header>
-                    <p>{{$sponsorVessel['price']}}</p>
-                  </div>
-                </section>
-              </div>
-              @endforeach
+            @if(isset($sponsorVessels) && count($sponsorVessels) > 0)
+              @foreach($sponsorVessels as $sponsorVessel)
+              <div class="4u 12u(medium)">
+                <!-- Box -->
+                  <section class="box feature">
+                    <a href="{{$sponsorVessel->purchaselink}}" class="image featured"><img src="{{$sponsorVessel->img}}" alt="" /></a>
+                    <div class="inner">
+                      <header>
+                        <h3>New at Ignite Smoke Shop!</h3>
+                        <h2>{{$sponsorVessel->name}}</h2>
+                        <p>{{$sponsorVessel->brand}}</p>
+                      </header>
+                      <p>{{$sponsorVessel->price}}</p>
+                    </div>
+                  </section>
+                </div>
+                @endforeach
               @endif
             </div>
           </div>

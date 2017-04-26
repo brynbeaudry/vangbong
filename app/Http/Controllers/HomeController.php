@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     // Your other Stuff
 
-  }
+    }
 
     /**
      * Show the application dashboard.
@@ -43,7 +43,7 @@ class HomeController extends Controller
         //$sponsorVesselsJson = $files[0];
         //$sponsorVessels = json_decode(file_get_contents($file), true);
         //$userVessels = UserVessel::all();
-        return view('home', );
+        return view('home');
     }
 
 }
