@@ -63,14 +63,14 @@
               <div class="4u 12u(medium)">
                 <!-- Box -->
                   <section class="box feature">
-                    <a href="{{$sponsorVessel->purchaselink}}" class="image featured"><img src="{{$sponsorVessel->img}}" alt="" /></a>
+                    <a href="{{$sponsorVessel['purchaselink']}}" class="image featured"><img src="{{$sponsorVessel['img']}}" alt="" /></a>
                     <div class="inner">
                       <header>
                         <h3>New at Ignite Smoke Shop!</h3>
-                        <h2>{{$sponsorVessel->name}}</h2>
-                        <p>{{$sponsorVessel->brand}}</p>
+                        <h2>{{$sponsorVessel['name']}}</h2>
+                        <p>{{$sponsorVessel['brand']}}</p>
                       </header>
-                      <p>{{$sponsorVessel->price}}</p>
+                      <p>{{$sponsorVessel['price']}}</p>
                     </div>
                   </section>
                 </div>

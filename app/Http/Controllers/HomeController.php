@@ -39,11 +39,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //$file = Storage::get('public/json/bongs/ignite.json');
-        //$sponsorVesselsJson = $files[0];
-        //$sponsorVessels = json_decode(file_get_contents($file), true);
+        $ignite = Storage::get('public/json/bongs/ignite.json');
+
+        //DD($ignite);
+        $sponsorVessels = json_decode($ignite, true);
         //$userVessels = UserVessel::all();
-        return view('home');
+        //DD($sponsorVessels);
+        return view('home', compact('sponsorVessels'));
     }
 
 }
