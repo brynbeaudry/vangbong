@@ -12,9 +12,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    @yield('styles')
+
 
     <!-- Scripts -->
     <script src="{{asset('js/main.js')}}"></script>
@@ -35,6 +35,11 @@
     <div id="app">  <!-- Nav -->
         <nav class="navbar navbar-default navbar-static-top">
           <div class="container">
+              <!-- Logo -->
+              <div id="logo" style="float: left; padding-top: 2px;">
+                <h1><a href="/">VanBong.ca</a></h1>
+                <span>for all your Vancouver Bong and Bud Info</span>
+              </div>
               <!-- Collapsed Hamburger -->
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                   <span class="sr-only">Toggle Navigation</span>
@@ -77,17 +82,6 @@
     </nav>
       <!-- Header -->
       <div id="page-wrapper homepage">
-        <div id="header-wrapper">
-          <header id="header" class="container">
-
-            <!-- Logo -->
-              <div id="logo">
-                <h1><a href="/">VanBong.ca</a></h1>
-                <span>for all your Vancouver Bong and Bud Info</span>
-              </div>
-          </header>
-        </div>
-        @yield('styles')
         <container>
         @include('includes.sidebar')
         @yield('content')

@@ -18,7 +18,8 @@ class CreateUserVesselsTable extends Migration
             $table->string('title');
             $table->string('desription')->unique();
             $table->binary('img');
-            $table->string('ownerId');
+            $table->unsignedInteger('ownerId');
+            $table->foreign('ownerId')->references('id')->on('users');
             $table->timestamps();
         });
     }

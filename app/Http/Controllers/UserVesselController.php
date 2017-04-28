@@ -41,7 +41,7 @@ class UserVesselController extends Controller
     public function create()
     {
         //localhost:8000/vessels/create   with return this page with this data
-        return view('newvservessel');
+        return view('posts.newuservessel');
 
     }
 
@@ -83,8 +83,10 @@ class UserVesselController extends Controller
             'title' => $data['title'],
             'description' => $data['description'],
             'img' => $path,
-            'owenerid' => 'ownerid'
+            'ownerId' => 'ownerId'
         ]);
+
+
 
     }
 
