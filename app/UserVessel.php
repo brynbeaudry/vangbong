@@ -16,4 +16,6 @@ class UserVessel extends Model
      * @var string
      */
     protected $table = 'userVessels';
+
+    
 }

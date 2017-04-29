@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\UserVessel;
+use App\User;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\Storage;
@@ -30,7 +31,7 @@ class UserVesselController extends Controller
         //********** localhost:8000/vessels   with return this page with this data
 
         //you can use the same posts.userVessel for showing 1, it'lll just use less data. you can change the oage if there is just one vessl
-        return view('uservessel',compact('vessels', 'index'));
+        return view('uservessels.all',compact('vessels', 'index'));
     }
 
     /**
@@ -55,7 +56,6 @@ class UserVesselController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $data = $request->all();
 
          $validator = Validator::make($data, [
@@ -79,12 +79,15 @@ class UserVesselController extends Controller
         $path = $file->move("images/userVessels" , "{$newId}.{$ext}");
         Storage::setVisibility($path, 'public');
 
-        UserVessel::create([
+        $userVessel = UserVessel::create([
             'title' => $data['title'],
             'description' => $data['description'],
             'img' => $path,
             'ownerId' => 'ownerId'
         ]);
+
+        return redirect('vessels/show/'.$userVessel->id);
+
 
 
 
@@ -100,21 +103,14 @@ class UserVesselController extends Controller
     public function show($id)
     {
 
-        if ($id == 1) {
-            return view('posts.userVessel')->with([
+        $user = User::find($userVessel->ownerId);
+        return view('uservessels.one')->with([
                 'title' => 'Bong Trade Post',
                 'description' => 'Description of what they are trading',
                 'imagePath' => 'userVesselImages/bong.jpg',
-                'showOne' => 'this is from UserVesselController@show'
+                'ownerName' => 'this is from UserVesselController@show'
             ]);
-        } else {
-            return view('posts.userVessel')->with([
-                'title' => 'Bong Trade Post 2',
-                'description' => 'Another description of what they are trading',
-                'imagePath' => 'userVesselImages/bong.jpg',
-                'showOne' => 'this is from UserVesselController@show'
-            ]);
-        }
+
     }
 
     /**

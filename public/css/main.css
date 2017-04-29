@@ -1597,7 +1597,6 @@
 	input[type="button"],
 	input[type="submit"],
 	input[type="reset"],
-	button,
 	.button {
 		-moz-transition: background-color .25s ease-in-out;
 		-webkit-transition: background-color .25s ease-in-out;
@@ -1888,50 +1887,6 @@
 			margin: 0 0 0 1.25em;
 		}
 
-/* Nav */
-
-	#nav {
-		position: absolute;
-		right: 0;
-		top: 0;
-		font-size: 0.9em;
-	}
-
-		#nav ul li {
-			float: left;
-			line-height: 4.5em;
-			padding-left: 1.5em;
-		}
-
-			#nav ul li a, #nav ul li span {
-				-moz-transition: background-color .25s ease-in-out;
-				-webkit-transition: background-color .25s ease-in-out;
-				-ms-transition: background-color .25s ease-in-out;
-				transition: background-color .25s ease-in-out;
-				font-weight: 800;
-				letter-spacing: 0.025em;
-				color: #696969;
-				text-decoration: none;
-				border-radius: 6px;
-				padding: 0.5em 1em 0.5em 1em;
-			}
-
-			#nav ul li > ul {
-				display: none;
-			}
-
-			#nav ul li:hover a, #nav ul li:hover span {
-				background: #fff;
-			}
-
-			#nav ul li.active a, #nav ul li.active span {
-				background: #fff;
-			}
-
-			#nav ul li.current a {
-				background: #444;
-				color: #fff;
-			}
 
 	.dropotron {
 		background: #fff;
@@ -2133,7 +2088,6 @@
 			input[type="button"],
 			input[type="submit"],
 			input[type="reset"],
-			button,
 			.button {
 				width: 100%;
 				text-align: center;
@@ -2440,7 +2394,6 @@
 			input[type="button"],
 			input[type="submit"],
 			input[type="reset"],
-			button,
 			.button {
 				width: 100%;
 				text-align: center;

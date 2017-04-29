@@ -14,16 +14,16 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('css/vanbong.css')}}">
 
 
     <!-- Scripts -->
-    <script src="{{asset('js/main.js')}}"></script>
   	<script src="{{asset('js/jquery.min.js')}}"></script>
   	<script src="{{asset('js/jquery.dropotron.min.js')}}"></script>
   	<script src="{{asset('js/skel.min.js')}}"></script>
   	<script src="{{asset('js/util.js')}}"></script>
-  	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-  	<script src="assets/js/main.js"></script>
+  	<!--[if lte IE 8]><script src={{asset('js/ie/respond.min.js')}}"></script><![endif]-->
+    <script src="{{asset('js/main.js')}}"></script>
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
@@ -32,58 +32,65 @@
 </head>
 <body>
 
-    <div id="app">  <!-- Nav -->
-        <nav class="navbar navbar-default navbar-static-top">
-          <div class="container">
-              <!-- Logo -->
-              <div id="logo" style="float: left; padding-top: 2px;">
-                <h1><a href="/">VanBong.ca</a></h1>
-                <span>for all your Vancouver Bong and Bud Info</span>
-              </div>
-              <!-- Collapsed Hamburger -->
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                  <span class="sr-only">Toggle Navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-          <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <!-- Authentication Links -->
-                @if (Auth::guest())
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="{{ route('register') }}">Register</a></li>
+    <div id="app">
+      <!-- Nav -->
+      <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
 
-                @else
-                    <li><a href="{{ route('vessels.create') }}">Post a Bong</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
+                    <!-- Collapsed Hamburger -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                    Logout
+                    <!-- Branding Image -->
+                    <a class="lara-logo lnk-btn" href="{{ url('/') }}">
+                        VanBong.ca
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->email }} <span class="caret"></span>
                                 </a>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
                             </li>
-                        </ul>
-                    </li>
-                @endif
-          </ul>
-        </div>
-      </div>
-    </nav>
+                        @endif
+                    </ul>
+                </div>
+            </div>
+        </nav>
       <!-- Header -->
       <div id="page-wrapper homepage">
         <container>
-        @include('includes.sidebar')
         @yield('content')
         </container>
 
