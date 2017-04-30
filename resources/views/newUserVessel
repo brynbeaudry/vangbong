@@ -1,0 +1,47 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Dashboard</div>
+
+                <div class="panel-body">
+                    Make a form for posting a new bong
+                    {{ Form::open(array('files' => true, 'action' => 'UserVesselController@save')) }}
+                    echo Form::text('title', $value = null);
+                    echo Form::text('description');
+                    echo Form::number('ownerId', $value = Auth::user()->id);
+                    echo Form::file('image', $id = "jimage", $value = null, $accept="image/jpeg");
+                    echo Form::submit('Click Me!');
+                    <img id="uploadedimage" width="500px" />
+                    {{ Form::close() }}
+                    <script>
+                       $(document).ready(function() {
+                           document.getElementById("jimage").onchange = function () {
+                               var reader = new FileReader();
+
+                               reader.onload = function (e) {
+                                   if (e.total > 250000) {
+                                       $('#imageerror').text('Image too large');
+                                       $jimage = $("#jimage");
+                                       $jimage.val("");
+                                       $jimage.wrap('<form>').closest('form').get(0).reset();
+                                       $jimage.unwrap();
+                                       $('#uploadedimage').removeAttr('src');
+                                       return;
+                                   }
+                                   $('#imageerror').text('');
+                                   document.getElementById("uploadedimage").src = e.target.result;
+                               };
+                               reader.readAsDataURL(this.files[0]);
+                           };
+                       });
+                   </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

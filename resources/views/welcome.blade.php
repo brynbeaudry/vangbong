@@ -24,17 +24,17 @@
       </div>
     </div>
 
-    <!-- Aeticle 1 -->
+    <!-- Articles -->
       <div id="features-wrapper">
         <div class="container">
           <div class="row">
-            <div class="12u 12u(medium)">
+            <div class="4u 12u(medium)">
               <!-- Box -->
                 <section class="box feature">
-                  <a href="#" class="image featured"><img style="border-radius: 25px; width: auto; height: 250px;" src="http://www.cannabisculture.com/files/images/gmm_0.jpg" alt="" /></a>
+                  <a href="#" class="image featured"><img style="border-radius: 25px; width: inherit; height: inherit;" src="http://www.cannabisculture.com/files/images/gmm_0.jpg" alt="" /></a>
                   <div class="inner">
                     <header>
-                      <h2>Weed Tourist Guide</h2>
+                      <h2>Tourism</h2>
                     </header>
                     <p>*Before you decide to come to Vancouver, be sure to inform yourself about the current marijuana laws. See our Vancouver Marijuana Laws for more information.  We do not advocate for breaking the law. *</p>
                     <p>So you’ve decided to come to ‘Vansterdam’ , but you don’t know where t go. Here are some of the best places to go to experience the famous BC Bud! </p>
@@ -56,7 +56,7 @@
             <div class="12u 12u(medium)">
               <!-- Box -->
                 <section class="box feature">
-                  <a href="#" class="image featured"><img style="border-radius: 25px; width: auto; height: 250px;" src="http://3.bp.blogspot.com/-1hhtUWZzEnA/UTEVxVfRqkI/AAAAAAAAANU/yOGESbaOdpM/s1600/Spring-Cleaning-SALE---March-2013---Facebook2.png" alt="" /></a>
+                  <a href="#" class="image featured"><img style="border-radius: 25px; width: inherit; height: inherit;" src="http://3.bp.blogspot.com/-1hhtUWZzEnA/UTEVxVfRqkI/AAAAAAAAANU/yOGESbaOdpM/s1600/Spring-Cleaning-SALE---March-2013---Facebook2.png" alt="" /></a>
                   <div class="inner">
                     <header>
                       <h2>Sponsored Content</h2>

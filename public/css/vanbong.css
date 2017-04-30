@@ -1,0 +1,61 @@
+.cnt-blk-vert-child {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cnt-inline {
+  vertical-align: middle;
+}
+
+.right-inline {
+  horizontal-align: right;
+}
+
+.absolute-right{
+    display: inline-block;
+    right: 0;
+}
+
+
+
+.lnk-btn {
+  text-decoration: none;
+}
+
+a.lara-logo  {
+  background: #0b891e;
+  color: #fff;
+  border-radius: 6px;
+  font-family: 'Oleo Script', serif;
+  font-weight: 400;
+  padding: 0.25em 0.2em 0.25em 0.2em;
+  font-size: 3.25em;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+span.lara-logo{
+font-weight: 800;
+line-height: 4.5em;
+letter-spacing: 0.025em;
+font-size: 1em;
+vertical-align: middle;
+margin: 0 0 0 1.25em;
+font-family: 'Oleo Script', serif;
+}
+
+
+.cnt-blk-vert-parent {
+  position: relative;
+}
+
+.btn-reg {
+    background: #0b891e important;
+    color: #fff important;
+}
+
+.dsktp-but{
+
+}

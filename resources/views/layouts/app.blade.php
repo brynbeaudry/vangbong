@@ -28,6 +28,10 @@
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
+
+        function goToURL(url) {
+          location.href = url;
+        }
     </script>
 </head>
 <body>
@@ -36,7 +40,7 @@
       <!-- Nav -->
       <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
-                <div class="navbar-header">
+                <div class="navbar-header" onclick="goToURL({{ url('/') }})">
 
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -47,24 +51,32 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="lara-logo lnk-btn" href="{{ url('/') }}">
+                    <a class="lara-logo lnk-btn" onclick="goToURL({{ url('/') }})" href="{{ url('/') }}" style= "z-index: 3">
                         VanBong.ca
                     </a>
+                    <span class="lara-logo hidden-xs">for all your Vancouver Bong and Bud Info</span>
                 </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
+                <div class="collapse navbar-collapse cnt-blk-vert-parent" style="z-index: 1" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
-
+                    -->
+                    <div class="cnt-blk-vert-child absolute-right hidden-xs" style= "z-index: 2">
+                      <div class="btn-group">
+                        <a class="btn btn-default lnk-btn" style="on-hover: none;" href="{{route('login')}}">Login</a>
+                        <a class="btn btn-default lnk-btn" style="background: #0b891e; color: #fff;" href="{{ route('register') }}">Register</a>
+                      </div>
+                    </div>
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right hidden-sm hidden-md hidden-lg">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                        <li><a role="button" class="btn btn-default lnk-btn" href="{{route('login')}}">Login</a></li>
+                        <li><a role="button" class="btn btn-default lnk-btn btn-reg" style="background: #0b891e; color: #fff;" href="{{ route('register') }}">Register</a></li>
                         @else
+                          <li><a href="{{ route('vessels.create') }}">Post a Bong</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->email }} <span class="caret"></span>
@@ -87,6 +99,7 @@
                     </ul>
                 </div>
             </div>
+
         </nav>
       <!-- Header -->
       <div id="page-wrapper homepage">

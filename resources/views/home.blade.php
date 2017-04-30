@@ -5,14 +5,13 @@
 @endsection
 @section('content')
 
-<div id="homepage">
-  <!-- UserVessels -->
 
+  <!-- UserVessels -->
+  @if(isset($userVessels) && count($userVessels) > 0)
+    @foreach($userVessels as $userVessel)
     <div id="features-wrapper">
       <div class="container">
         <div class="row">
-          @if(isset($userVessels) && count($userVessels) > 0)
-            @foreach($userVessels as $userVessel)
             <div class="4u 12u(medium)">
               <!-- Box -->
                 <section class="box feature">
@@ -26,11 +25,11 @@
                   </div>
                 </section>
               </div>
-              @endforeach
-            @endif
           </div>
         </div>
       </div>
+      @endforeach
+    @endif
 
 
 
@@ -42,7 +41,7 @@
 
               <!-- Box -->
                 <section class="box feature">
-                  <a href="#" class="image featured"><img style="border-radius: 25px; width: auto; height: 250px;" src="http://3.bp.blogspot.com/-1hhtUWZzEnA/UTEVxVfRqkI/AAAAAAAAANU/yOGESbaOdpM/s1600/Spring-Cleaning-SALE---March-2013---Facebook2.png" alt="" /></a>
+                  <a href="#" class="image featured"><img style="border-radius: 25px; width: inherit; height: inherit;" src="http://3.bp.blogspot.com/-1hhtUWZzEnA/UTEVxVfRqkI/AAAAAAAAANU/yOGESbaOdpM/s1600/Spring-Cleaning-SALE---March-2013---Facebook2.png" alt="" /></a>
                   <div class="inner">
                     <header>
                       <h2>Sponsored Content</h2>
@@ -63,14 +62,19 @@
               <div class="4u 12u(medium)">
                 <!-- Box -->
                   <section class="box feature">
-                    <a href="{{$sponsorVessel['purchaselink']}}" class="image featured"><img src="{{$sponsorVessel['img']}}" alt="" /></a>
-                    <div class="inner">
+                    <a href="{{$sponsorVessel['purchaselink']}}" style="width: inherit; height:inherit;" class="image featured"><img src="{{$sponsorVessel['img']}}" alt="" /></a>
+                    <div class="inner" style="word-wrap: break-word">
                       <header>
-                        <h3>New at Ignite Smoke Shop!</h3>
-                        <h2>{{$sponsorVessel['name']}}</h2>
+                        <h6>New at Ignite Smoke Shop!</h3>
+                        @if(strlen($sponsorVessel['name'])>19)
+                          <?php $longname = substr($sponsorVessel['name'], 0, 16) . "...";  ?>
+                          <h2>{{$longname}}</h2>
+                        @else
+                          <h2>{{$sponsorVessel['name']}}</h2>
+                        @endif
                         <p>{{$sponsorVessel['brand']}}</p>
+                        <p>{{$sponsorVessel['price']}}</p>
                       </header>
-                      <p>{{$sponsorVessel['price']}}</p>
                     </div>
                   </section>
                 </div>
@@ -202,6 +206,4 @@
         </div>
       </footer>
     </div>
-
-  </div>
   @endsection
