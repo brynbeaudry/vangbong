@@ -39,7 +39,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $ignite = Storage::get('public/json/bongs/ignite.json');
+
+        $ignite = Storage::disk('local')->get('bongs/ignite.json');
 
         //DD($ignite);
         $sponsorVessels = json_decode($ignite, true);
