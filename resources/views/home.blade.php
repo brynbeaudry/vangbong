@@ -4,8 +4,6 @@
 @section('styles')
 @endsection
 @section('content')
-
-
   <!-- UserVessels -->
   @if(isset($userVessels) && count($userVessels) > 0)
     @foreach($userVessels as $userVessel)

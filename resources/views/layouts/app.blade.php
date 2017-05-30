@@ -57,16 +57,23 @@
                     <span class="lara-logo hidden-xs">for all your Vancouver Bong and Bud Info</span>
                 </div>
 
-                <div class="collapse navbar-collapse cnt-blk-vert-parent" style="z-index: 1" id="app-navbar-collapse">
+                <div class="collapse navbar-collapse cnt-blk-vert-parent" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
                     -->
-                    <div class="cnt-blk-vert-child absolute-right hidden-xs" style= "z-index: 2">
+                    <div class="cnt-blk-vert-child absolute-right hidden-xs">
                       <div class="btn-group">
+                      @if (Auth::guest())
                         <a class="btn btn-default lnk-btn" style="on-hover: none;" href="{{route('login')}}">Login</a>
                         <a class="btn btn-default lnk-btn" style="background: #0b891e; color: #fff;" href="{{ route('register') }}">Register</a>
+                      @else
+                        <a class="btn btn-primary lnk-btn" style="on-hover: none;" href="{{ route('vessels.create') }}">Post a Bong</a>
+                        <a class="btn btn-default lnk-btn" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">Logout</a>
+                      @endif
                       </div>
                     </div>
                     <!-- Right Side Of Navbar -->
