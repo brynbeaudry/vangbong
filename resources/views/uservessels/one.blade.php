@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-dd($vessel->id);
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -16,7 +15,7 @@ dd($vessel->id);
                           <div class="4u 12u(medium)">
                             <!-- Box -->
                               <section class="box feature">
-                                <!--  <a href="#" class="image featured"><img src="{{route('/vessels/' . $vessel->id . '/image')}}" alt="" /></a>-->
+                              <a href="#" class="image featured"><img src="{{url('/vessels/' . $vessel->id . '/image')}}" alt="" /></a>
 
                                 <div class="inner">
                                   <header>

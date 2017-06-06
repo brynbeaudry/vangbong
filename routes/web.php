@@ -15,7 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('dispensaries', "DispensaryController");
+
 Route::resource('vessels', "UserVesselController");
+Route::get('vessels/{id}/image', "UserVesselController@image");
 
 Auth::routes();
 
