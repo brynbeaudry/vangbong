@@ -25,3 +25,5 @@ Route::get('imgstore/{filename}', function ($filename)
 {
     return Image::make(storage_path() . "/" . $filename)->response();
 });
+
+Route::resource('articles', 'ArticleController');

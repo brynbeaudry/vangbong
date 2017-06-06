@@ -40,12 +40,15 @@ class HomeController extends Controller
     public function index()
     {
 
-        $ignite = Storage::disk('local')->get('bongs/ignite.json');
-
-        //DD($ignite);
-        $sponsorVessels = json_decode($ignite, true);
+        $ignite1 = Storage::disk('local')->get('bongs/ignite-bongs-glass.json');
+        $ignite2 = Storage::disk('local')->get('bongs/ignite-mult-pages.json');
+        //dd($ignite);
+        $ignite1 = rtrim(preg_replace('/\\n/', ' ', $ignite1));
+        $ignite2 = rtrim(preg_replace('/\\n/', ' ', $ignite2));
+        $sponsorVessels = collect(json_decode($ignite1, true));
+        $sponsorVessels = $sponsorVessels->merge(collect(json_decode($ignite2, true)))->values();
         //$userVessels = UserVessel::all();
-        //DD($sponsorVessels);
+        //dd($sponsorVessels);
         return view('home', compact('sponsorVessels'));
     }
 

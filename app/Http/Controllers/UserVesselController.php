@@ -57,7 +57,7 @@ class UserVesselController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
+        dd($data);
          $validator = Validator::make($data, [
           'title' => 'required|max:255',
           'description' => 'required|max:255',
@@ -76,20 +76,19 @@ class UserVesselController extends Controller
         if($newId==null) $newId = 0;
         $newId++;
 
-        $path = $file->move("images/userVessels" , "{$newId}.{$ext}");
+        $path = $file("{$newId}.{$ext}")->storeAs(
+          'uservessels', $data->ownerId
+        );
         Storage::setVisibility($path, 'public');
 
         $userVessel = UserVessel::create([
             'title' => $data['title'],
             'description' => $data['description'],
             'img' => $path,
-            'ownerId' => 'ownerId'
+            'ownerId' => $data->ownerId,
         ]);
 
         return redirect('vessels/show/'.$userVessel->id);
-
-
-
 
     }
 

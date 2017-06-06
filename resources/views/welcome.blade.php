@@ -23,28 +23,32 @@
         </div>
       </div>
     </div>
-
+    <h1 class="text-center">Articles</h1>
     <!-- Articles -->
       <div id="features-wrapper">
         <div class="container">
           <div class="row">
+            @if(isset($articles) && count($articles) > 0))
+            @foreach($articles as $article)
             <div class="4u 12u(medium)">
               <!-- Box -->
                 <section class="box feature">
-                  <a href="#" class="image featured"><img style="border-radius: 25px; width: inherit; height: inherit;" src="http://www.cannabisculture.com/files/images/gmm_0.jpg" alt="" /></a>
+                  <a href="#" class="image featured"><img style="border-radius: 25px; width: inherit; height: inherit;" src="{{$article->img_url}}" alt="" /></a>
                   <div class="inner">
                     <header>
-                      <h2>Tourism</h2>
+                      <h2>{{$article->title}}</h2>
+                      <h5>by {{$article->author}}</h5>
+                      <h3>{{ucfirst($article->category)}}</h3>
+                      <h4>{{$article->tagline}}</h4>
                     </header>
-                    <p>*Before you decide to come to Vancouver, be sure to inform yourself about the current marijuana laws. See our Vancouver Marijuana Laws for more information.  We do not advocate for breaking the law. *</p>
-                    <p>So you’ve decided to come to ‘Vansterdam’ , but you don’t know where t go. Here are some of the best places to go to experience the famous BC Bud! </p>
-                    <p>Your best bet would be to head go downtown to “The New Amsterdam Café,” located at 301 Hastings Street W. This is the most popular place to smoke up in Vancouver. Also, next door is “Marc Emery’s Cannabis Culture” vapor lounge. For a small fee, you are able to vape or smoke to your heart’s content. There is only one issue… Weed is technically still illegal here, so you will not be able to purchase it at these types of businesses. You will see signs on all the walls saying “You cannot buy cannabis here. Do not ask.” The staff will not tell you anything about how to get green, so listen to the signs and do not try to ask them. </p>
-                    <p>Your best bet would be to head go downtown to “The New Amsterdam Café,” located at 301 Hastings Street W. This is the most popular place to smoke up in Vancouver. Also, next door is “Marc Emery’s Cannabis Culture” vapor lounge. For a small fee, you are able to vape or smoke to your heart’s content. There is only one issue… Weed is technically still illegal here, so you will not be able to purchase it at these types of businesses. You will see signs on all the walls saying “You cannot buy cannabis here. Do not ask.” The staff will not tell you anything about how to get green, so listen to the signs and do not try to ask them. </p>
-                    <p>There are plenty of simple ways to get what you want. It is extremely easy to get in the area of the café. The quickest and easiest way to get it would be to ask people in the immediate area around the café. Do not try to buy off people inside the café, as that is not allowed. If you ask around, you will be able to find somebody to buy from within minutes. That area is a hotspot, so there is no shortage of sellers. However, if you prefer not to do this, as it may seem sketchy, than there are other ways to get what you want. Many of the dispensaries in Vancouver have already dropped their requirement for a medicinal card, and are openly selling to recreational users above the age of 19. For example, you can go to “The Medicinal Cannabis Dispensary,” at either one of their locations (880 East Hastings St or 1182 Thurlow Street). As of last year, they publicly dropped their requirement for a medicinal card, even though it is technically illegal. Going to one of those places would probably be the best experience, as you can have a wide selection of strains, and you will not have to worry whether or not the product is laced. </p>
+                    <p>{{substr($article->text, 0 ,150) . '...'}}</p>
+                    <a href="{{ route( 'articles.show', ['id'=>$article->id] ) }}" class="button icon fa-arrow-circle-right">Continue Reading</a>
                   </div>
                 </section>
 
             </div>
+            @endforeach
+            @endif
           </div>
         </div>
       </div>
@@ -70,31 +74,38 @@
       </div>
       <!-- Sponsor Vessels  -->
 
+<h1 class="text-center">Sponsored Products</h1>
+      <!-- Sponsor Vessels  -->
+      <div id="features-wrapper">
+        <div class="container">
+          <div class="row">
 
-        <div id="features-wrapper">
-          <div class="container">
-            <div class="row">
-              @if(count($sponsorVessels) > 0)
+            @if(isset($sponsorVessels) && count($sponsorVessels) > 0)
               @foreach($sponsorVessels as $sponsorVessel)
               <div class="4u 12u(medium)">
                 <!-- Box -->
                   <section class="box feature">
-                    <a href="{{$sponsorVessel->purchaselink}}" class="image featured"><img src="{{$sponsorVessel->img}}" alt="" /></a>
-                    <div class="inner">
+                    <a href="{{$sponsorVessel['purchaselink']}}" style="width: inherit; height:inherit;" class="image featured"><img src="{{$sponsorVessel['img']}}" alt="" /></a>
+                    <div class="inner" style="word-wrap: break-word">
                       <header>
-                        <h3>New at Ignite Smoke Shop!</h3>
-                        <h2>{{$sponsorVessel['name']}}</h2>
+                        <h6>New at Ignite Smoke Shop!</h3>
+                        @if(strlen($sponsorVessel['name'])>19)
+                          <?php $longname = substr($sponsorVessel['name'], 0, 16) . "...";  ?>
+                          <h2>{{$longname}}</h2>
+                        @else
+                          <h2>{{$sponsorVessel['name']}}</h2>
+                        @endif
                         <p>{{$sponsorVessel['brand']}}</p>
+                        <p>{{$sponsorVessel['price']}}</p>
                       </header>
-                      <p>{{$sponsorVessel['price']}}</p>
                     </div>
                   </section>
                 </div>
                 @endforeach
-                @endif
-              </div>
+              @endif
             </div>
           </div>
+        </div>
 
   <!-- Main -->
     <div id="main-wrapper">
@@ -126,10 +137,8 @@
             <!-- Content -->
               <div id="content">
                 <section class="last">
-                  <h2>So what's this all about?</h2>
-                  <p>This is <strong>Verti</strong>, a free and fully responsive HTML5 site template by <a href="http://html5up.net">HTML5 UP</a>.
-                  Verti is released under the <a href="http://html5up.net/license">Creative Commons Attribution license</a>, so feel free to use it for any personal or commercial project you might have going on (just don't forget to credit us for the design!)</p>
-                  <p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus. Praesent semper bibendum ipsum, et tristique augue fringilla eu. Vivamus id risus vel dolor auctor euismod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat. Aliquam luctus mattis lectus sit amet phasellus quam turpis.</p>
+                  <h2>A footer Heaing</h2>
+                  <p>Get people tlaking about your bong shop or dispensary, and see how it stacks up.</p>
                   <a href="#" class="button icon fa-arrow-circle-right">Continue Reading</a>
                 </section>
               </div>

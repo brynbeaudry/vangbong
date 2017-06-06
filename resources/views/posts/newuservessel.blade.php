@@ -11,7 +11,8 @@
 
                     <form class="" action="/vessels" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="text" name="description" value="">
+                    <input type="text" name="title" value="" placeholder="Title">
+                    <input type="text" name="description" value="" placeholder="description">
                     <input type="hidden" name="ownerId" value="{{Auth::user()->id}}">
                     <input type="file" id="jimage" name="image" value="">
                     <input type="submit" name="submit" value="Submit">
