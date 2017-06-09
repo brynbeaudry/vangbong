@@ -70,8 +70,15 @@ class UserVesselController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         }
+        //uses autoheight
+        $img = Image::make($request->file('image'))->encode('data-url')->resize(250, null, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        });
 
-        $img = (string) Image::make($request->file('image'))->encode('data-url',75);
+        $img = (string) $img;
+
+        //Max is 64KB
 
         //dd($file);
         /*
@@ -156,7 +163,7 @@ class UserVesselController extends Controller
     public function image($id){
       $userVessel = UserVessel::findOrFail($id);
       $img = Image::make(file_get_contents($userVessel->img));
-     $response = $img->response()->header('Content-Type', $img->mime());
-       return $response;
+      $response = $img->response()->header('Content-Type', $img->mime());
+      return $response;
     }
 }

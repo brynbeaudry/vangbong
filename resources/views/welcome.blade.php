@@ -28,7 +28,7 @@
       <div id="features-wrapper">
         <div class="container">
           <div class="row">
-            @if(isset($articles) && count($articles) > 0))
+            @if(isset($articles) && count($articles) > 0)
             @foreach($articles as $article)
             <div class="4u 12u(medium)">
               <!-- Box -->

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 col-md-offset-2 col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Post a FAT RIP or a SICK BONG</div>
 
@@ -14,9 +14,10 @@
                     <input type="text" name="title" value="" placeholder="Title">
                     <input type="text" name="description" value="" placeholder="description">
                     <input type="hidden" name="ownerId" value="{{Auth::user()->id}}">
-                    <input type="file" id="jimage" name="image" value="">
-                    <input type="submit" name="submit" value="Submit">
-                    <img id="uploadedimage" width="500px" />
+                    <input type="file" id="jimage"  accept=".png, .jpg, .jpeg, .gif" name="image" value="">
+                    <p class="text-danger" id="imageerror"></p>
+                    <input type="submit" name="submit" value="Submit"><br />
+                    <img id="uploadedimage" class="img-responsive" />
                     </form>
                     <script>
                        $(document).ready(function() {
@@ -24,7 +25,8 @@
                                var reader = new FileReader();
 
                                reader.onload = function (e) {
-                                   if (e.total > 250000) {
+                                 //Max 3 MB
+                                   if (e.total > 3000000) {
                                        $('#imageerror').text('Image too large');
                                        $jimage = $("#jimage");
                                        $jimage.val("");
@@ -44,5 +46,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

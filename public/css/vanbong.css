@@ -59,3 +59,9 @@ font-family: 'Oleo Script', serif;
 .dsktp-but{
 
 }
+
+@media (max-width: 767px) {
+  a.lara-logo.lnk-btn {
+      font-size: 3em;
+  }
+}
