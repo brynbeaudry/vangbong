@@ -14,7 +14,7 @@
                     <input type="text" name="title" value="" placeholder="Title">
                     <input type="text" name="description" value="" placeholder="description">
                     <input type="hidden" name="ownerId" value="{{Auth::user()->id}}">
-                    <input type="file" id="jimage"  accept=".png, .jpg, .jpeg, .gif" name="image" value="">
+                    <input type="file" id="jimage"  accept=".png, .jpg, .jpeg, .gif" name="image" value="" required>
                     <p class="text-danger" id="imageerror"></p>
                     <input type="submit" name="submit" value="Submit"><br />
                     <img id="uploadedimage" class="img-responsive" />

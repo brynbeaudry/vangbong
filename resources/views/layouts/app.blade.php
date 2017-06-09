@@ -86,12 +86,12 @@
                         <li><a role="button" class="btn btn-default lnk-btn" href="{{route('login')}}">Login</a></li>
                         <li><a role="button" class="btn btn-default lnk-btn btn-reg" style="background: #0b891e; color: #fff;" href="{{ route('register') }}">Register</a></li>
                         @else
-                          <li><a class="btn btn-primary lnk-btn" href="{{ route('vessels.create') }}">Post a Bong</a></li>
+                          <li><a role="button" class="btn btn-primary lnk-btn" href="{{ route('vessels.create') }}" style="color:white;">Post a Bong</a></li>
                             <li>
                                 <a role="button" class="btn btn-default lnk-btn" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout {{Auth::user()->name}}
+                                            Logout {{ ucfirst(Auth::user()->name )}}
                                 </a>
                             </li>
                         @endif
