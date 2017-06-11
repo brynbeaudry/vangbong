@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -10,6 +11,7 @@
                   <div id="features-wrapper">
                     <div class="container">
                       <div class="row">
+                         <div id="one-wrapper" class="12u(xsmall) 12u(small) 8u(medium) -4u(medium)">
                             <!-- Box -->
                               <section class="box feature">
                               <a href="#" class="image featured"><img src="{{url('/vessels/' . $vessel->id . '/image')}}" alt="" /></a>
@@ -23,6 +25,7 @@
                                   <p>{{$owner->name}}</p>
                                 </div>
                               </section>
+                              </div>
                         </div>
                       </div>
                     </div
