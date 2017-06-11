@@ -10,9 +10,6 @@
                   <div id="features-wrapper">
                     <div class="container">
                       <div class="row">
-
-
-                          <div class="4u 12u(medium)">
                             <!-- Box -->
                               <section class="box feature">
                               <a href="#" class="image featured"><img src="{{url('/vessels/' . $vessel->id . '/image')}}" alt="" /></a>
@@ -26,13 +23,11 @@
                                   <p>{{$owner->name}}</p>
                                 </div>
                               </section>
-                            </div>
-
                         </div>
                       </div>
                     </div
                 </div>
-            </div>
+                </div>
         </div>
     </div>
 </div>

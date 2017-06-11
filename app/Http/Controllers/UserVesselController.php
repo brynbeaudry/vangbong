@@ -70,34 +70,25 @@ class UserVesselController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         }
+
+        // create new image with transparent background color
         //uses autoheight
-        $img = Image::make($request->file('image'))->encode('data-url')->resize(250, null, function ($constraint) {
-            $constraint->aspectRatio();
+        $rnd_str = str_random(20);
+        $tmp_path = "/tmp/$rnd_str." . $request->file('image')->extension();
+        $tmp_url = public_path($tmp_path);
+        $local = Image::make($request->file('image'))
+        ->fit(640, 640, function ($constraint) {
             $constraint->upsize();
-        });
+        })
+        ->save($tmp_url);
+        if(isset($local->exif()->Orientation))
+          $local = Image::make($tmp_url)->orientate()->save();
+        $img = Image::make($tmp_url)->encode('data-url', 100);
+        unlink($tmp_url);
 
-        $img = (string) $img;
+        //dd($img->filesize(), $img->height(), $img->width());
 
-        //Max is 64KB
-
-        //dd($file);
-        /*
-        $ext = $request->file('image')->guessClientExtension();
-        $newId = UserVessel::max('id');
-        //dd($newId);
-        if($newId==null)
-          $newId = 1;
-        else
-          $newId++;
-        //dd($newId);
-        $path = $request->file('image')->storeAs(
-          'uservessels/'.$request->ownerId, "$newId". ".$ext"
-        );
-        //dd($path);
-        //Storage::setVisibility($path, 'public');
-        */
-
-
+        //$img = (string) $img;
 
         $userVessel = UserVessel::create([
             'title' => $request->title,
