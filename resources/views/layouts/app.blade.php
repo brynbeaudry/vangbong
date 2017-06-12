@@ -12,18 +12,29 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <link rel="stylesheet" href="{{asset('css/vanbong.css')}}">
 
 
     <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
   	<script src="{{asset('js/jquery.min.js')}}"></script>
   	<script src="{{asset('js/jquery.dropotron.min.js')}}"></script>
   	<script src="{{asset('js/skel.min.js')}}"></script>
   	<script src="{{asset('js/util.js')}}"></script>
   	<!--[if lte IE 8]><script src={{asset('js/ie/respond.min.js')}}"></script><![endif]-->
     <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('js/load-image.js')}}"></script>
+    <script src="{{asset('js/load-image-scale.js')}}"></script>
+    <script src="{{asset('js/load-image-meta.js')}}"></script>
+    <script src="{{asset('js/load-image-fetch.js')}}"></script>
+    <script src="{{asset('js/load-image-exif.js')}}"></script>
+    <script src="{{asset('js/load-image-exif-map.js')}}"></script>
+    <script src="{{asset('js/load-image-orientation.js')}}"></script>
+
+
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
@@ -108,9 +119,5 @@
 
     </div>
   </div>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    @yield('scripts')
 </body>
 </html>

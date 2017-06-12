@@ -74,17 +74,25 @@ class UserVesselController extends Controller
         // create new image with transparent background color
         //uses autoheight
         $rnd_str = str_random(20);
-        $tmp_path = "/tmp/$rnd_str." . $request->file('image')->extension();
+        $data_url = $request->img;
+        //dd($data_url);
+        //$request->file('image')->extension()
+        $tmp_path = "/tmp/$rnd_str." . "png";
         $tmp_url = public_path($tmp_path);
-        $local = Image::make($request->file('image'))
+        $local = Image::make($data_url)
         ->fit(640, 640, function ($constraint) {
-            $constraint->upsize();
+                $constraint->upsize();
         })
         ->save($tmp_url);
-        if(isset($local->exif()->Orientation))
-          $local = Image::make($tmp_url)->orientate()->save();
-        $img = Image::make($tmp_url)->encode('data-url', 100);
-        unlink($tmp_url);
+        if(Image::make($tmp_url)->exif() !== null)
+          $local =  Image::make($tmp_url)->orientate()->save();
+        //dd("In temp", $exif, $data);
+        $img = (string) $local->encode('data-url', 100);
+        if(file_exists($tmp_url)){
+            unlink($tmp_url);
+        }else{
+            echo 'file not found';
+        }
 
         //dd($img->filesize(), $img->height(), $img->width());
 

@@ -1,29 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
-
+<style>
+</style>
     <div class="row">
         <div class="col-md-8 col-md-offset-2 col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                  <span>Post a FAT RIP or a SICK BONG</span>
-                  <br />
-                  <span id="mobile-warning">Post a FAT RIP or a SICK BONG</span>
+                  <div class="container">
+                    <div class="row">
+                        <div class="float-left">
+                          <span>Post a FAT RIP or a SICK BONG</span>
+                          <br />
+                          <span id="mobile-warning" class="text-warning text-center"></span>
+                        </div>
+                        <div class="float-right">
+                          <i class="fa fa-camera fa-2x float-right" id="camera-new"></i>
+                        </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="panel-body">
 
-                    <form class="" action="/vessels" method="POST" enctype="multipart/form-data">
+                    <form id="new-bong-form" class="" action="/vessels" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="text" name="title" value="" placeholder="Title">
                     <input type="text" name="description" value="" placeholder="description">
                     <input type="hidden" name="ownerId" value="{{Auth::user()->id}}">
-                    <input type="file" id="jimage"  accept="image/*" name="image" value="" required>
+                    <input type="file" id="jimage" class="hidden" accept="image/*" name="image" value="">
+                    <input type="hidden" id='img-data' name="img" value="" />
                     <p class="text-danger" id="imageerror"></p>
                     <input type="submit" name="submit" value="Submit"><br />
-                    <img id="uploadedimage" class="img-responsive" />
+
                     </form>
+                    <div id="result" class="result">
+                        <p></p>
+                    </div>
+                   <div id="exif" class="exif" style="display:none;">
+                      <h2>Exif meta data</h2>
+                      <p id="thumbnail" class="thumbnail" style="display:none;"></p>
+                      <table></table>
+                  </div>
+                    <script src="{{asset('js/jsli_ex.js')}}"></script>
                     <script>
-                       $(document).ready(function() {
+                      $(document).ready(function() {
 
                       /**
                       * Determine the mobile operating system.
@@ -52,29 +72,27 @@
                       }
 
                       if(getMobileOperatingSystem()==="iOS"){
-                        $('#mobile-warning').html('An iPhone!<br>Please take the photo in <big>Landscape</big> or <big>Upload</big>');
+                        $('#mobile-warning').html('<large>An iPhone!</large><br>Please take the photo in <big>Landscape</big> or <big>Upload</big>');
                       }
 
-                           document.getElementById("jimage").onchange = function () {
-                               var reader = new FileReader();
 
-                               reader.onload = function (e) {
-                                 //Max 8 MB
-                                   if (e.total > 8000000) {
-                                       $('#imageerror').text('Image too large');
-                                       $jimage = $("#jimage");
-                                       $jimage.val("");
-                                       $jimage.wrap('<form>').closest('form').get(0).reset();
-                                       $jimage.unwrap();
-                                       $('#uploadedimage').removeAttr('src');
-                                       return;
-                                   }
-                                   $('#imageerror').text('');
-                                   document.getElementById("uploadedimage").src = e.target.result;
-                               };
-                               reader.readAsDataURL(this.files[0]);
-                           };
-                       });
+                      $('i#camera-new').on('click', function(event){
+                        event.preventDefault();
+                        $('#jimage').trigger('click');
+                      });
+
+
+
+                      //dropChangeHandler is from mit include
+                      /*
+                      $('#jimage')
+                        .on('change', dropChangeHandler);
+                        */
+
+
+
+
+                    });
                    </script>
                 </div>
             </div>
