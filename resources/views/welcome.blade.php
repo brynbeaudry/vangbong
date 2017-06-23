@@ -30,10 +30,10 @@
           <div class="row">
             @if(isset($articles) && count($articles) > 0)
             @foreach($articles as $article)
-            <div class="4u 12u(medium)">
+            <div class="3u 6u(medium) 12u(small)">
               <!-- Box -->
                 <section class="box feature">
-                  <a href="#" class="image featured"><img style="border-radius: 25px; width: inherit; height: inherit;" src="{{$article->img_url}}" alt="" /></a>
+                  <a href="{{ route( 'articles.show', ['id'=>$article->id] ) }}" class="image featured"><img style="border-radius: 25px; width: inherit; height: inherit;" src="{{$article->img_url}}" alt="" /></a>
                   <div class="inner">
                     <header>
                       <h2>{{$article->title}}</h2>
@@ -48,6 +48,29 @@
 
             </div>
             @endforeach
+            @endif
+            @if(isset($newsItems) && count($newsItems) > 0)
+            @foreach($newsItems as $newsItem)
+            <div class="3u 6u(medium) 12u(small)">
+              <!-- Box -->
+                <section class="box feature">
+                  <a href="{{$newsItem['link']}}" class="image featured"><img style="border-radius: 25px; width: inherit; height: inherit;" src="{{$newsItem['img']}}" alt="" /></a>
+                  <div class="inner">
+                    <header>
+                      <h2>{{$newsItem['headline']}}</h2>
+                      <h5>by {{$newsItem['source']}}</h5>
+                      <h3>Local News</h3>
+                    </header>
+                    <p>{{$newsItem['description']}}</p>
+                  </div>
+                </section>
+            </div>
+            @endforeach
+            @else
+            <div class="">
+              <p>{{dd($newsItems)}}</p>
+            </div>
+            <!--else end -->
             @endif
           </div>
         </div>
@@ -82,6 +105,7 @@
 
             @if(isset($sponsorVessels) && count($sponsorVessels) > 0)
               @foreach($sponsorVessels as $sponsorVessel)
+
               <div class="4u 12u(medium)">
                 <!-- Box -->
                   <section class="box feature">

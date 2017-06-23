@@ -51,6 +51,7 @@
                       *
                       * @returns {String}
                       */
+                      /*
                       function getMobileOperatingSystem() {
                        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -74,6 +75,7 @@
                       if(getMobileOperatingSystem()==="iOS"){
                         $('#mobile-warning').html('<large>An iPhone!</large><br>Please take the photo in <big>Landscape</big> or <big>Upload</big>');
                       }
+                      */
 
 
                       $('i#camera-new').on('click', function(event){

@@ -19,20 +19,13 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    @yield('scripts')
   	<script src="{{asset('js/jquery.min.js')}}"></script>
   	<script src="{{asset('js/jquery.dropotron.min.js')}}"></script>
   	<script src="{{asset('js/skel.min.js')}}"></script>
   	<script src="{{asset('js/util.js')}}"></script>
   	<!--[if lte IE 8]><script src={{asset('js/ie/respond.min.js')}}"></script><![endif]-->
     <script src="{{asset('js/main.js')}}"></script>
-    <script src="{{asset('js/load-image.js')}}"></script>
-    <script src="{{asset('js/load-image-scale.js')}}"></script>
-    <script src="{{asset('js/load-image-meta.js')}}"></script>
-    <script src="{{asset('js/load-image-fetch.js')}}"></script>
-    <script src="{{asset('js/load-image-exif.js')}}"></script>
-    <script src="{{asset('js/load-image-exif-map.js')}}"></script>
-    <script src="{{asset('js/load-image-orientation.js')}}"></script>
+
 
 
     <script>
@@ -119,5 +112,13 @@
 
     </div>
   </div>
+  <script src="{{asset('js/load-image.js')}}"></script>
+  <script src="{{asset('js/load-image-scale.js')}}"></script>
+  <script src="{{asset('js/load-image-meta.js')}}"></script>
+  <script src="{{asset('js/load-image-fetch.js')}}"></script>
+  <script src="{{asset('js/load-image-exif.js')}}"></script>
+  <script src="{{asset('js/load-image-exif-map.js')}}"></script>
+  <script src="{{asset('js/load-image-orientation.js')}}"></script>
+  @yield('scripts')
 </body>
 </html>

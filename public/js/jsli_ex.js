@@ -15,6 +15,7 @@ $(function () {
   'use strict'
 
   var result = $('#result')
+  console.log("yo");
   var exifNode = $('#exif')
   var thumbNode = $('#thumbnail')
   var currentFile
