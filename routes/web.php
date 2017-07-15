@@ -11,9 +11,7 @@ use Intervention\Image\Image;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::resource('dispensaries', "DispensaryController");
 
 Route::resource('vessels', "UserVesselController");
@@ -22,10 +20,6 @@ Route::get('vessels/{id}/image', "UserVesselController@image");
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('/', 'WelcomeController@index');
-Route::get('imgstore/{filename}', function ($filename)
-{
-    return Image::make(storage_path() . "/" . $filename)->response();
-});
+Route::get('/', 'WelcomeController@index')->name('welcome');
 
 Route::resource('articles', 'ArticleController');
